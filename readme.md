@@ -31,10 +31,7 @@ npm i
 ```
 
 ## Instruction
-To build:
-```
-anchor build
-```
+
 To set network to devnet:
 ```
 solana config set --url devnet
@@ -50,4 +47,12 @@ solana airdrop 2 --url devnet
 To check balance in devnet:
 ```
 solana balance --url devnet
+```
+To build:
+```
+anchor build
+```
+To deploy:
+```
+anchor deploy
 ```
