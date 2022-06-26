@@ -19,7 +19,7 @@ pub mod gifportal {
         let item = ItemStruct{
             gif_link: gif_link.to_string(),
             user_address: *user.to_account_info().key
-        }
+        };
 
         base_account.gif_list.push(item);
         base_account.total_gifs += 1;
