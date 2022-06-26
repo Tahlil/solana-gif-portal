@@ -2,10 +2,23 @@ const anchor = require('@project-serum/anchor')
 
 const main = async() =>  {
   console.log("Starting tests...");
-  anchor.setProvider(anchor.setProvider.env());
+
+  const provider = anchor.Provider.env()
+  anchor.setProvider(provider)
+  const baseAccount = anchor.web3.Keypair.generate()
   const program = anchor.workspace.Gifportal;
-  const tx = await program.rpc.startStuffOff();
+  const tx = await program.rpc.startStuffOff({
+    accounts: {
+      baseAccount: baseAccount.publicKey,
+      user: provider.wallet.publicKey,
+      systemProgram: anchor.web3.SystemProgram.programId,
+    },
+    signers: [baseAccount]
+  });
   console.log("Your tx signature", tx);
+
+  let account = await program.account.baseAccount.fetch(baseAccount.publicKey);
+  console.log("GIF count", account.totalGifs.toString());
 }
 
 const runMain = async() => {
