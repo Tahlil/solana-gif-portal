@@ -35,7 +35,14 @@ pub struct AddGif<'info> {
     pub base_account: Account<'info, BaseAccount>
 }
 
+#[derive(Debug, Clone, AnchorSerialize, AnchorDeserialize)]
+pub struct ItemStruct{
+    pub gif_link: String,
+    pub user_address: PubKey
+}
+
 #[account]
 pub struct BaseAccount {
     pub total_gifs:u64,
+    pub gif_list: Vec<ItemStruct>
 }
