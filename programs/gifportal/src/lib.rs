@@ -15,6 +15,13 @@ pub mod gifportal {
 
     pub fn add_gif(ctx: Context<AddGif>) -> ProgramResult{
         let base_account = &mut ctx.accounts.base_account;
+        let user = &mut ctx.accounts.user;
+        let item = ItemStruct{
+            gif_link: gif_link.to_string(),
+            user_address: *user.to_account_info().key
+        }
+
+        base_account.gif_list.push(item);
         base_account.total_gifs += 1;
         Ok(())
     }
