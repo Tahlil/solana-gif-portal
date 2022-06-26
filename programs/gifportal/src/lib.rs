@@ -10,6 +10,10 @@ pub mod gifportal {
         Ok(())
     }
     
+}
+
+#[derive(Accounts)]
+pub struct StartStaffOff {
     
 }
 
