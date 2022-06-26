@@ -20,13 +20,17 @@ const main = async() =>  {
   let account = await program.account.baseAccount.fetch(baseAccount.publicKey);
   console.log("GIF count", account.totalGifs.toString());
 
-  await program.rpc.addGif({
-    accounts: {
-      baseAccount: baseAccount.publicKey
+  await program.rpc.addGif(
+    "https://media1.giphy.com/media/10LKovKon8DENq/200w.webp?cid=ecf05e477orjj2rm2g7eg66hsdb2qezm5uourx19v3etv0u9&rid=200w.webp&ct=g",
+    {
+      accounts: {
+      baseAccount: baseAccount.publicKey,
+      user: provider.wallet.publicKey
     }
   });
   account = await program.account.baseAccount.fetch(baseAccount.publicKey)
   console.log("GIF count", account.totalGifs.toString());
+  console.log("GIF count", account.gifList);
 }
 
 const runMain = async() => {
