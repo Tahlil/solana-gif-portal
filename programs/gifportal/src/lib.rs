@@ -13,7 +13,7 @@ pub mod gifportal {
         Ok(())
     }
 
-    pub fn add_gif(ctx: Context<AddGif>) -> ProgramResult{
+    pub fn add_gif(ctx: Context<AddGif>, gif_link: String) -> ProgramResult{
         let base_account = &mut ctx.accounts.base_account;
         let user = &mut ctx.accounts.user;
         let item = ItemStruct{
@@ -39,13 +39,15 @@ pub struct StartStaffOff<'info> {
 #[derive(Accounts)]
 pub struct AddGif<'info> {
     #[account(mut)]
-    pub base_account: Account<'info, BaseAccount>
+    pub base_account: Account<'info, BaseAccount>,
+    #[account(mut)]
+    pub user: Signer<'info>
 }
 
 #[derive(Debug, Clone, AnchorSerialize, AnchorDeserialize)]
 pub struct ItemStruct{
     pub gif_link: String,
-    pub user_address: PubKey
+    pub user_address: Pubkey
 }
 
 #[account]
