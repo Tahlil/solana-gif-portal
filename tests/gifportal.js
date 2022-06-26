@@ -3,7 +3,7 @@ const anchor = require('@project-serum/anchor')
 const main = async() =>  {
   console.log("Starting tests...");
 
-  const provider = anchor.Provider.env()
+  const provider = anchor.getProvider()
   anchor.setProvider(provider)
   const baseAccount = anchor.web3.Keypair.generate()
   const program = anchor.workspace.Gifportal;
