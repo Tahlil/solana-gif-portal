@@ -1,0 +1,2 @@
+Deployed Program ID in devnet: 82wpSArZHYT41sZHTBzLv7FMr1anD5JCMLFfeKZ5zKU2
+Link: https://explorer.solana.com/address/82wpSArZHYT41sZHTBzLv7FMr1anD5JCMLFfeKZ5zKU2?cluster=devnet
