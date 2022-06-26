@@ -52,6 +52,11 @@ To build:
 ```
 anchor build
 ```
+After the build get the user address from the default keypair:
+```
+solana address -k <specfied location after running the build command>/gifportal-keypair.json
+```
+Copy-paste the address in `declare_id` in `lib.rs` file. 
 To deploy:
 ```
 anchor deploy
