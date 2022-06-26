@@ -19,6 +19,8 @@ const main = async() =>  {
 
   let account = await program.account.baseAccount.fetch(baseAccount.publicKey);
   console.log("GIF count", account.totalGifs.toString());
+
+  
 }
 
 const runMain = async() => {
