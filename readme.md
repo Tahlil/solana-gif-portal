@@ -56,7 +56,11 @@ After the build get the user address from the default keypair:
 ```
 solana address -k <specfied location after running the build command>/gifportal-keypair.json
 ```
-Copy-paste the address in `declare_id` in `lib.rs` file and also change the `Anchor.toml` file to update `gifportal`. 
+Copy-paste the address in `declare_id` in `lib.rs` file and also change the `Anchor.toml` file to update `gifportal`.
+Run anchor build again:
+```
+anchor build
+```
 To deploy:
 ```
 anchor deploy
